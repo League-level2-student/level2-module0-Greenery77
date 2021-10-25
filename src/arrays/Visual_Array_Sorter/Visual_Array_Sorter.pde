@@ -13,7 +13,7 @@ size(400, 400);
 
   //3. initialize your array with the built in width variable
   
-  int[] i = new int[width];
+  i = new int[width];
   
   //4. initialize the ints in the array with random numbers
   //   from 0 to the built in height variable
@@ -35,7 +35,11 @@ noStroke();
 void draw() {
   //6. set the background color with background(r, g, b);
 
+background(0, 0, 0);
+
   //7. set the color for your graph
+
+fill(250, 250,2501);
 
   //8. draw a rectangle for each int in your array.
   //   the x value will be the current index in the array
@@ -43,12 +47,37 @@ void draw() {
   //   the width is 1 (one)
   //   the height is negative the value of the element at the current index of the array
 
+for (int k = 0; k < i.length; k++) {
+ 
+  rect(k, height, 1, -i[k]);
+  
+}
 
   //9. call the stepSort method
+
+stepSort(i);
 
   //10. extract the code that randomizes the array into a method.
 
   //11. call the method you made in step 10 when the mouse is pressed
+  
+  if (mousePressed) {
+   
+    randomize();
+    
+  }
+
+}
+
+void randomize(){
+
+Random ran = new Random();
+
+for (int j = 0; j < i.length; j++) {
+ 
+  i[j] = ran.nextInt(height);
+  
+}
 
 }
 
